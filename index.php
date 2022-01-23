@@ -53,7 +53,7 @@ if(isset($_POST['submit']))
     $kiswahili = filter_input(INPUT_POST, 'igiswahili');
 	$sql = "INSERT INTO `indimi`(`variable`, `kinyarwanda`, `french`, `english`, `swahili`)  values ('$word','$kinyarwanda' ,'$French' ,'$English' ,'$kiswahili')";
 	if ($db->query($sql)){ 
-	 echo "New word is inserted sucessfully";
+	 //echo "New word is inserted sucessfully";
 	}
 	else{
 	echo "Error: ". $sql ."
