@@ -8,6 +8,45 @@
 </head>
 <body>
 <h1 >Translation App</h1>
+	<div>
+<?php
+        $word = filter_input(INPUT_POST,'word');
+        $kinyarwanda = filter_input(INPUT_POST, 'kinya');
+        $French = filter_input(INPUT_POST, 'igifaransa');
+        $English = filter_input(INPUT_POST, 'icyongereza');
+        $kiswahili = filter_input(INPUT_POST, 'igiswahili');
+        
+         
+$server = "localhost";
+$username = "root";
+$password = "";
+$dbname = "guhindura";
+// Create connection
+$conn = new mysqli ($server, $username, $password, $dbname);
+if (mysqli_connect_error()){
+die('Connect Error ('. mysqli_connect_errno() .') '
+. mysqli_connect_error());
+}
+else{
+$sql = "INSERT INTO `indimi`(`variable`, `kinyarwanda`, `french`, `english`, `swahili`)  values ('$word','$kinyarwanda' ,'$French' ,'$English' ,'$kiswahili')";
+if ($conn->query($sql)){ 
+// echo "New word is inserted sucessfully";
+}
+else{
+echo "Error: ". $sql ."
+". $conn->error;
+}
+// $conn->close();
+mysqli_close($conn); // Close connection
+}
+
+
+?>
+
+</div>
+ <br/>
+ <br/>
+ <br/>
 <div class="containers" style="margin-left:670px; width:70%; margin-top:-430px;">
    <div class="row">
    <!-- <div class="col-md-8 col-md-offset-2" style="margin-top: 5%;"> -->
