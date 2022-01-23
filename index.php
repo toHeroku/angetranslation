@@ -5,12 +5,7 @@
 	<meta charset="utf-8">
 	<title>Translation App</title>
 	 <style type="text/css">
-	 body
-	 {
-	 	text-align: center;
-         
-
-	 } 	
+		
      form{
       background-color:grey; 
       background-color:#f2f2f2;
@@ -40,7 +35,7 @@
 	 </style>
 </head>
 <body>
-<h1 >Translation App</h1>
+<h1 >Translationyy App</h1>
 <div>
 <?php
         $word = filter_input(INPUT_POST,'word');
