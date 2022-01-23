@@ -5,7 +5,12 @@
 	<meta charset="utf-8">
 	<title>Translation App</title>
 	 <style type="text/css">
-		
+	 body
+	 {
+	 	text-align: center;
+         background-color:black;
+
+	 } 	
      form{
       background-color:grey; 
       background-color:#f2f2f2;
@@ -35,7 +40,7 @@
 	 </style>
 </head>
 <body>
-<h1 >Translationyy App</h1>
+<h1 >Translation App</h1>
 <div>
 <?php
         $word = filter_input(INPUT_POST,'word');
@@ -117,10 +122,12 @@ mysqli_close($conn); // Close connection
 		
 			
        <form method="POST" style="width:60%; background_color:black; margin-top:-437px"> 
+	   <table>
  
        <!-- <table bgcolor="whitesmoke" width="50%;height:70%" cellspacing="20" border="0"> -->
 				<tr ><td colspan="2"><h1>Select Word to Translate</h1></tr>
                 <br/>
+				
 	<tr>			
 	<td> Choose Variable word you want to translate</td>
 	<td><!-- <select name="status" id="status" onchange="sayIt()">
@@ -228,7 +235,7 @@ mysqli_close($conn); // Close connection
           
                    
 </table>
-       
+		</form>     
 
 </body>
 </html>
