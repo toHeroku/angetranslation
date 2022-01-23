@@ -7,7 +7,7 @@
 	 body
 	 {
 	 	text-align: center;
-         background-color:black;
+         background-color:white;
 
 	 } 	
      form{
@@ -39,7 +39,7 @@
 	 </style>
 </head>
 <body>
-<h1 style="color:white;">Translation App</h1>
+<h1 style="color:black;">Translation App</h1>
    <form style="margin-top:30px; margin-left:17px;" action="" method="post">
      	<div class="container" id="container">
      		<h1> Register a V_Word</h1>
