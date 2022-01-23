@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Translation Apphghg</title>
+	<title>Translation App</title>
 	 <style type="text/css">
 	 body
 	 {
