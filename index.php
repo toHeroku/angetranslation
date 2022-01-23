@@ -8,7 +8,7 @@
 	 body
 	 {
 	 	text-align: center;
-         background-color:black;
+         
 
 	 } 	
      form{
