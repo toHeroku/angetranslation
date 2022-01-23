@@ -40,46 +40,7 @@
 </head>
 <body>
 <h1 style="color:white;">Translation App</h1>
-<!-- <div> -->
-<?php
-        $word = filter_input(INPUT_POST,'word');
-        $kinyarwanda = filter_input(INPUT_POST, 'kinya');
-        $French = filter_input(INPUT_POST, 'igifaransa');
-        $English = filter_input(INPUT_POST, 'icyongereza');
-        $kiswahili = filter_input(INPUT_POST, 'igiswahili');
-        
-         
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "guhindura";
-// Create connection
-$conn = new mysqli ($server, $username, $password, $dbname);
-if (mysqli_connect_error()){
-die('Connect Error ('. mysqli_connect_errno() .') '
-. mysqli_connect_error());
-}
-else{
-$sql = "INSERT INTO `indimi`(`variable`, `kinyarwanda`, `french`, `english`, `swahili`)  values ('$word','$kinyarwanda' ,'$French' ,'$English' ,'$kiswahili')";
-if ($conn->query($sql)){ 
-// echo "New word is inserted sucessfully";
-}
-else{
-echo "Error: ". $sql ."
-". $conn->error;
-}
-// $conn->close();
-mysqli_close($conn); // Close connection
-}
-?>
-
-<!-- </div>
- <br/>
- <br/>
- <br/> -->
-	<!-- <div> -->
-		
-     <form style="margin-top:30px; margin-left:17px;" action="" method="post">
+   <form style="margin-top:30px; margin-left:17px;" action="" method="post">
      	<div class="container" id="container">
      		<h1> Register a V_Word</h1>
              <br/>
@@ -95,12 +56,7 @@ mysqli_close($conn); // Close connection
 <br/><br/>
            Kiswahili<input style="margin-left:28px; " type="text" name="igiswahili" required>
            <br/><br/>
-
-
-
-           <input class="btn" id="btn" type="submit" name="create" value="Save">
-		   <!-- <button name="display" value="display" class="display">Display</button>
-                <input class="" type="text" name="var"  placeholder="enter the word to search"> -->
+    <input class="btn" id="btn" type="submit" name="create" value="Save">
      	</div>
      </form>
  
