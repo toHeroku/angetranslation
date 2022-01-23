@@ -177,12 +177,6 @@ mysqli_close($conn); // Close connection
 				}
 
 			 }
-
-			
-	
-				
-			
-
 		
 ?> 
 <br/>
