@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -7,7 +8,7 @@
 	 body
 	 {
 	 	text-align: center;
-         background-color:white;
+         background-color:black;
 
 	 } 	
      form{
@@ -39,11 +40,16 @@
 	 </style>
 </head>
 <body>
-<h1 style="color:black;">Translation App</h1>
-   <form style="margin-top:30px; margin-left:17px;" action="" method="post">
-     	<div class="container" id="container">
-     		<h1> Register a V_Word</h1>
-		<?php
+<h1 >Translation App</h1>
+<div>
+</div>
+ <br/>
+ <br/>
+ <br/>
+	<div>
+		
+     <form style="margin-top:30px; margin-left:17px;" action="" method="POST">
+	 <?php
 include "conn.php"; // Using database connection file here
 
 if(isset($_POST['submit']))
@@ -53,20 +59,21 @@ if(isset($_POST['submit']))
     $French = filter_input(INPUT_POST, 'igifaransa');
     $English = filter_input(INPUT_POST, 'icyongereza');
     $kiswahili = filter_input(INPUT_POST, 'igiswahili');
-   $sql = "INSERT INTO `indimi`(`variable`, `kinyarwanda`, `french`, `english`, `swahili`)  values ('$word','$kinyarwanda' ,'$French' ,'$English' ,'$kiswahili')";
-
-    if(!$sql)
-    {
-        echo mysqli_error();
-    }
-    else
-    {
-        echo "Records added successfully.";
-    }
-}
-
-mysqli_close($db); // Close connection
+	$sql = "INSERT INTO `indimi`(`variable`, `kinyarwanda`, `french`, `english`, `swahili`)  values ('$word','$kinyarwanda' ,'$French' ,'$English' ,'$kiswahili')";
+	if ($db->query($sql)){ 
+	 echo "New word is inserted sucessfully";
+	}
+	else{
+	echo "Error: ". $sql ."
+	". $db->error;
+	}
+	// $conn->close();
+	mysqli_close($db); // Close connection
+	}
 ?>
+     	<section>
+     	<div class="container" id="container">
+     		<h1> Register a V_Word</h1>
              <br/>
 			 <label for="word"> V_Word</label> 
 			 <input style="margin-left:45px; "type="text" name="word" id="word">
@@ -80,15 +87,29 @@ mysqli_close($db); // Close connection
 <br/><br/>
            Kiswahili<input style="margin-left:28px; " type="text" name="igiswahili" required>
            <br/><br/>
-    <input class="btn" id="btn" type="submit" name="submit" value="Save">
+
+
+
+           <input class="btn" id="submit" type="submit" name="submit" value="Save">
+		   <!-- <button name="display" value="display" class="display">Display</button>
+                <input class="" type="text" name="var"  placeholder="enter the word to search"> -->
      	</div>
      </form>
-	  <div class="containers" style="margin-left:670px; width:70%; margin-top:-430px;">
-   <!-- <div class="row">
-   <div class="row"> -->
-	  <form method="POST" style="width:60%; background_color:black; margin-top:-430px"> 
-      <h1 style="margin-top:10px;">Select Word to Translate</h1> 
-      <table > 			
+ 
+     
+     <div class="containers" style="margin-left:670px; width:70%; margin-top:-430px;">
+   <div class="row">
+   <!-- <div class="col-md-8 col-md-offset-2" style="margin-top: 5%;"> -->
+   <div class="row">
+
+   </table>
+	  <form method="POST" style="width:60%; background_color:black; margin-top:-437px"> 
+	   <table>
+ 
+       <!-- <table bgcolor="whitesmoke" width="50%;height:70%" cellspacing="20" border="0"> -->
+				<tr ><td colspan="2"><h1>Select Word to Translate</h1></tr>
+                <br/>
+				
 	<tr>			
 	<td> Choose Variable word you want to translate</td>
 	<td><!-- <select name="status" id="status" onchange="sayIt()">
@@ -99,7 +120,7 @@ mysqli_close($db); // Close connection
 				
 			</select> -->
             <select name="word" id="val" style="background: #5cb85c; color: white;">
-    <option value="0" style="background: #5cb85c; color: #fff;"> Select any word </option>
+    <option value="0" style="background: #5cb85c; color: #fff;">-- Select word --</option>
     <?php
         include "conn.php";  // Using database connection file here
         $records = mysqli_query($db, "SELECT * From indimi");  // Use select query here 
@@ -113,26 +134,23 @@ mysqli_close($db); // Close connection
 			</td>
             <br/>
             <br/>
-
 			                  <td style="margin-left:600px">Translate To </td>
 			<td>
 				<select name="status" style="background: #5cb85c; color: white;">
-			    <option value="0 " style="background: #5cb85c; color: white;">Select any language</option>
+			    <option value="0 " style="background: #5cb85c; color: white;">-- Select language --</option>
 				<option value="1" style="background: #5cb85c; color: white;">Kinyarwanda</option>
 				<option value="2" style="background: #5cb85c; color: white;">French</option>
 				<option value="3" style="background: #5cb85c; color: white;">English</option>
 				<option value="4" style="background: #5cb85c; color: white;">Swahili</option>
 				
 			</select></td>
-			
+			<td>
                 <br/>
                 <br/>
-                <br/>
-                <td>
                   <button name="translate" id="translate" class="btn" style="color: white;border-color: white;background-color: light; background-color:#4CAF50;height:30px;">Translate</button>
                    </td>
      </tr>
-
+     <tr>
 		 <?php 
 		 $result=[];
 		 if(isset($_POST['translate']))
@@ -187,7 +205,7 @@ mysqli_close($db); // Close connection
 ?> 
 <br/>
 <br/>
-  <td><p style="font-size:17px;">Your Translated Result<p></td><td><label></label><b style="font-size:40px;"><?php echo $result[0];?></td><?php
+  <td>Your Translated Result<br/><br/></td><td><label></label><b style="font-size:40px;"><?php echo $result[0];?></td><?php
 		 }
 
 		 	 ?>
@@ -200,6 +218,6 @@ mysqli_close($db); // Close connection
                    
 </table>
 		</form>     
- 
+
 </body>
 </html>
