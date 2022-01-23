@@ -43,6 +43,30 @@
    <form style="margin-top:30px; margin-left:17px;" action="" method="post">
      	<div class="container" id="container">
      		<h1> Register a V_Word</h1>
+		<?php
+include "conn.php"; // Using database connection file here
+
+if(isset($_POST['submit']))
+{       
+    $word = filter_input(INPUT_POST,'word');
+    $kinyarwanda = filter_input(INPUT_POST, 'kinya');
+    $French = filter_input(INPUT_POST, 'igifaransa');
+    $English = filter_input(INPUT_POST, 'icyongereza');
+    $kiswahili = filter_input(INPUT_POST, 'igiswahili');
+   $sql = "INSERT INTO `indimi`(`variable`, `kinyarwanda`, `french`, `english`, `swahili`)  values ('$word','$kinyarwanda' ,'$French' ,'$English' ,'$kiswahili')";
+
+    if(!$sql)
+    {
+        echo mysqli_error();
+    }
+    else
+    {
+        echo "Records added successfully.";
+    }
+}
+
+mysqli_close($db); // Close connection
+?>
              <br/>
 			 <label for="word"> V_Word</label> 
 			 <input style="margin-left:45px; "type="text" name="word" id="word">
@@ -56,7 +80,7 @@
 <br/><br/>
            Kiswahili<input style="margin-left:28px; " type="text" name="igiswahili" required>
            <br/><br/>
-    <input class="btn" id="btn" type="submit" name="create" value="Save">
+    <input class="btn" id="btn" type="submit" name="submit" value="Save">
      	</div>
      </form>
 	  <div class="containers" style="margin-left:670px; width:70%; margin-top:-430px;">
