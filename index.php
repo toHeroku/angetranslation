@@ -7,8 +7,7 @@
 	 <style type="text/css">
 	 body
 	 {
-	 	text-align: center;
-         background-color:black;
+	 	
 
 	 } 	
      form{
