@@ -59,18 +59,12 @@
     <input class="btn" id="btn" type="submit" name="create" value="Save">
      	</div>
      </form>
-	
-     <div class="containers" style="margin-left:670px; width:70%; margin-top:-430px;">
-   <div class="row">
-   <!-- <div class="col-md-8 col-md-offset-2" style="margin-top: 5%;"> -->
-   <div class="row">
-	  <form method="POST" style="width:60%; background_color:black; margin-top:-437px"> 
-	   <table>
- 
-       <!-- <table bgcolor="whitesmoke" width="50%;height:70%" cellspacing="20" border="0"> -->
-				<tr ><td colspan="2"><h1>Select Word to Translate</h1></tr>
-                <br/>
-				
+	  <div class="containers" style="margin-left:670px; width:70%; margin-top:-430px;">
+   <!-- <div class="row">
+   <div class="row"> -->
+	  <form method="POST" style="width:60%; background_color:black; margin-top:-430px"> 
+      <h1 style="margin-top:10px;">Select Word to Translate</h1> 
+      <table > 			
 	<tr>			
 	<td> Choose Variable word you want to translate</td>
 	<td><!-- <select name="status" id="status" onchange="sayIt()">
@@ -81,7 +75,7 @@
 				
 			</select> -->
             <select name="word" id="val" style="background: #5cb85c; color: white;">
-    <option value="0" style="background: #5cb85c; color: #fff;">-- Select word --</option>
+    <option value="0" style="background: #5cb85c; color: #fff;"> Select any word </option>
     <?php
         include "conn.php";  // Using database connection file here
         $records = mysqli_query($db, "SELECT * From indimi");  // Use select query here 
@@ -95,23 +89,26 @@
 			</td>
             <br/>
             <br/>
+
 			                  <td style="margin-left:600px">Translate To </td>
 			<td>
 				<select name="status" style="background: #5cb85c; color: white;">
-			    <option value="0 " style="background: #5cb85c; color: white;">-- Select language --</option>
+			    <option value="0 " style="background: #5cb85c; color: white;">Select any language</option>
 				<option value="1" style="background: #5cb85c; color: white;">Kinyarwanda</option>
 				<option value="2" style="background: #5cb85c; color: white;">French</option>
 				<option value="3" style="background: #5cb85c; color: white;">English</option>
 				<option value="4" style="background: #5cb85c; color: white;">Swahili</option>
 				
 			</select></td>
-			<td>
+			
                 <br/>
                 <br/>
+                <br/>
+                <td>
                   <button name="translate" id="translate" class="btn" style="color: white;border-color: white;background-color: light; background-color:#4CAF50;height:30px;">Translate</button>
                    </td>
      </tr>
-     <tr>
+
 		 <?php 
 		 $result=[];
 		 if(isset($_POST['translate']))
@@ -166,7 +163,7 @@
 ?> 
 <br/>
 <br/>
-  <td>Your Translated Result<br/><br/></td><td><label></label><b style="font-size:40px;"><?php echo $result[0];?></td><?php
+  <td><p style="font-size:17px;">Your Translated Result<p></td><td><label></label><b style="font-size:40px;"><?php echo $result[0];?></td><?php
 		 }
 
 		 	 ?>
