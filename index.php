@@ -4,39 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Translation App</title>
-	 <style type="text/css">
-	 body
-	 {
-	 	
-
-	 } 	
-     form{
-      background-color:grey; 
-      background-color:#f2f2f2;
-      width:37%;
-      height:30%;
-      border-radius:5px;
-      border:solid 50px #f2f2f2;
-      position:relative;
-    }
-    .container{
-        margin-left:130px;
-
-    }
-    .btn{
-        background-color:#4CAF50;
-        color:white;
-        border:none;
-        border-radius:4px;
-        cursor:pointer;
-        height:40px;
-        font-size:13px;
-        font-weight:13px;
-    }
-    .btn:hover{
-        background-color:#45a049;
-    }
-	 </style>
+	
 </head>
 <body>
 <h1 >Translation App</h1>
